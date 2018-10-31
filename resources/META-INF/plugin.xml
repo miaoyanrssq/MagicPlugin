@@ -1,0 +1,43 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>Plugin display name here</name>
+  <version>1.0</version>
+  <vendor email="6273120987@qq.com" url="zhengy">zhengy</vendor>
+
+  <description>
+      打字魔法效果
+    </description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationService
+            serviceImplementation="cn.zgy.plugin.util.GlobalVar"
+            serviceInterface="cn.zgy.plugin.util.GlobalVar"
+      />
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+      <group id="MagicPluginGroup" text="MagicPlugin" popup="true">
+          <add-to-group group-id="CodeMenu" anchor="last"/>
+          <action class="cn.zgy.plugin.EnableAction" id="MagicPlugin.EnableAction" text="Enable" description="魔法插件开关"/>
+          <action class="cn.zgy.plugin.RandomColorAction" id="MagicPlugin.RandomColorAction" text="Random Color" description="随机颜色开关"/>
+      </group>
+  </actions>
+
+</idea-plugin>
